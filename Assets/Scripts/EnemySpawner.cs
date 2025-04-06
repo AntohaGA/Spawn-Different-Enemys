@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _poolEnemy = GetComponent<PoolEnemy>();
     }
+
     public void SpawnEnemy()
     {
         Enemy enemy = _poolEnemy.GetEnemy();

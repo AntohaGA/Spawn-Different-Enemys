@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnChooser : MonoBehaviour
 {
-    private const int DelaySpawn = 1;
+    private const float DelaySpawn = 0.5f;
 
     [SerializeField] private List<EnemySpawner> _spawners;
 

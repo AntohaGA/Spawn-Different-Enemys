@@ -2,11 +2,32 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class Enemy : MonoBehaviour
 {
-    protected float Speed;
+    [SerializeField] private float _speed;
 
-    public abstract event Action<Enemy> Killed;
+    private IEnumerator _moveCoroutine;
 
-    public abstract void FollowByTarget(TargetForEnemy target);
+    private float _minPositionToTarget = 1.5f;
+
+    public event Action<Enemy> Killed;
+
+    public void FollowByTarget(TargetForEnemy target)
+    {
+        _moveCoroutine = FollowToTarget(target);
+        StartCoroutine(_moveCoroutine);
+    }
+
+    protected IEnumerator FollowToTarget(TargetForEnemy target)
+    {
+        while ( ((transform.position - target.GetPosition()).sqrMagnitude) > _minPositionToTarget)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.GetPosition(), _speed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        Killed?.Invoke(this);
+    }
 }

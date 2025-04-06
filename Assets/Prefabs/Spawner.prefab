@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529565835654237326}
   - component: {fileID: 5989784575052393291}
+  - component: {fileID: 5555664675347306694}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -44,4 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b82780316023cb43b6543a109e78f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyType: {fileID: 0}
+  _targetForEnemy: {fileID: 0}
+--- !u!114 &5555664675347306694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998332003022508595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60cdc73d2999d7438db7878b0212814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 3178326639416310013, guid: 9b197d23cc24e0644b927c83e5425b5e, type: 3}
